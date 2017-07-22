@@ -399,3 +399,17 @@ function twentysixteen_widget_tag_cloud_args( $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'twentysixteen_widget_tag_cloud_args' );
+
+function button_callback($atts,$content, $tag){
+	//collect values, combining passed in values and defaults
+	//based on input determine what to return
+	$output .= '';
+	$output .= '<div class="donate-button button-container"><a href="';
+	$output .= $atts['url'];
+	$output .= '"><div class="default-button">';
+	$output .= $content;
+	$output .= "</div></a></div>";
+	return $output;
+}
+
+add_shortcode('button','button_callback');
